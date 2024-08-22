@@ -7,10 +7,16 @@ import {
   getArtistsController,
   updateArtistController,
 } from "../controllers/artist.controllers";
+import { createArtistMiddleware } from "../middlewares/artist.middlewares";
 
 const artistRouter = Router();
 
-artistRouter.post("/create-artist", verifyToken, createArtistController);
+artistRouter.post(
+  "/create-artist",
+  verifyToken,
+  createArtistMiddleware,
+  createArtistController
+);
 artistRouter.patch(
   "/update-artist/:artistId",
   verifyToken,

@@ -6,6 +6,11 @@ const artistSchema = new mongoose.Schema(
     gender: { type: String },
     email: { type: String },
     dob: { type: String },
+    role: {
+      type: String,
+      enum: ["actor", "actress", "producer", "director", "employee"],
+      required: true,
+    },
     image: {
       type: String,
       default:
