@@ -9,7 +9,7 @@ import {
 import {
   loginMiddleware,
   registerMiddleware,
-} from "../middlewares/auth.controller";
+} from "../middlewares/auth.middlewares";
 import { verifyToken } from "../utils/token";
 
 const authRouter = Router();
