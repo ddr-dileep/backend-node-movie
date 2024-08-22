@@ -4,7 +4,7 @@ const artistSchema = new mongoose.Schema(
   {
     name: { type: String, unique: true, required: true },
     gender: { type: String },
-    email: { type: String },
+    email: { type: String, unique: true, sparse: true },
     dob: { type: String },
     role: {
       type: String,
@@ -18,12 +18,18 @@ const artistSchema = new mongoose.Schema(
     },
     description: { type: String },
     nickname: { type: String },
-    phone: { type: String },
+    phone: { type: String, unique: true, sparse: true },
     address: { type: String },
     hobbies: [{ type: String }],
     awards: [{ type: String }],
-    socialSites: [],
+    socialSites: [
+      {
+        platform: { type: String },
+        url: { type: String },
+      },
+    ],
     tags: [{ type: String }],
+    movies: [{ type: mongoose.Types.ObjectId, ref: "Movie" }],
     createdBy: { type: mongoose.Types.ObjectId, ref: "User", required: true },
   },
   { timestamps: true }
