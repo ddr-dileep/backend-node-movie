@@ -4,6 +4,7 @@ import { config } from "dotenv";
 import dataBaseConfig from "./configs/databaseConfig";
 import artistRouter from "./routes/artist.routes";
 import movieRouter from "./routes/movie.routes";
+import commentRouter from "./routes/comment.routes";
 
 config();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/artist", artistRouter);
 app.use("/api/movie", movieRouter);
+app.use("/api", commentRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
