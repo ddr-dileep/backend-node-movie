@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
-const dataBaseConfig = () => {
+const dataBaseConfig = async (): Promise<void> => {
   try {
-    mongoose.connect(process.env.MONGO_URI!, { dbName: "node_auth" });
+    await mongoose.connect(process.env.MONGO_URI!, { dbName: "node_auth" });
     console.log("Connected to MongoDB");
   } catch (err) {
     console.log("error in database connection", err);
